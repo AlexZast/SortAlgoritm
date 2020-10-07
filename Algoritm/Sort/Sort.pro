@@ -4,4 +4,10 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
-        main.cpp
+        main.cpp \
+        randomarraygenerator.cpp \
+        sortalgoritm.cpp
+
+HEADERS += \
+    randomarraygenerator.h \
+    sortalgoritm.h

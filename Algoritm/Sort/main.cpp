@@ -1,50 +1,28 @@
+#include "randomarraygenerator.h"
+#include "sortalgoritm.h"
+#include <ctime>
 #include <iostream>
-#include <fstream>
-#include <string>
+#include <vector>
 
 using namespace std;
-
-class RandomArrayGenerator{
-public:
-    static void arrayGenerate(int lenth){
-        cout << lenth << endl;
-
-    }
-};
+//using namespace randomarraygenerator;
 
 int main()
 {
-
-    ofstream fout;
-    fout.open("array_int_1000", ofstream::app);
-
-    if (!fout.is_open())
-    {
-        cerr << "Error file open.";
-        exit(1);
-    }
-    fout << "Some information 2" << endl;
-    int i = 800;
-    fout << 556;
-    fout << i;
-    fout.close();
-
-    ifstream fin;
-    fin.open("array_int_1000");
-    if (!fin.is_open())
-    {
-        cerr << "Error opening file";
-        exit(2);
-    }
-
-    RandomArrayGenerator::arrayGenerate(15);
+    vector<int> a;
+    RandomArrayGenerator::arrayGenerate(10000);
+    RandomArrayGenerator::arrayRead(a, 10000);
+    cout << endl << endl;
+    float start = clock();
+    SortAlgoritm::BubleSort(a);
+    float stop = clock();
+    cout <<(stop-start) << endl;
+   //RandomArrayGenerator::printArray(a);
+    cout << endl<< "end";
 
 
-    char ch;
-    while(fin.get(ch)){
-          cout << ch;
-}
 
-    cout << "Hello World!" << endl;
+    //cout << "Hello World!" << endl;
     return 0;
 }
+
